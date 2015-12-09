@@ -2,6 +2,6 @@
 
 @section('content')
 
-
+Create Blog!!!!
 
 @endsection

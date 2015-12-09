@@ -7,7 +7,7 @@
 			<ul class="nav navbar-nav">
 			<li class="active">
 			<a href="{{ route('blogs.index') }}">Blogs</a></li>
-			<li><a href="#">Create</a></li>
+			<li><a href="{{ route('blogs.create') }}">Create</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
