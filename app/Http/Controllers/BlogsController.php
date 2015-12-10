@@ -86,7 +86,10 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+
+        $blog = Blog::findOrfail($id);
+        return view ('blogs.edit')->with('blog', $blog);
     }
 
     /**
@@ -96,9 +99,14 @@ class BlogsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogRequest $request, $id)
     {
         //
+        $blog = Blog::findOrfail($id);
+
+        $blog->update($request->all());
+
+        return redirect ('blogs');
     }
 
     /**
