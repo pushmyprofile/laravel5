@@ -117,6 +117,10 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        Blog::destroy($id);
+
+        return redirect('blogs');
+
     }
 }

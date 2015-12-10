@@ -9,29 +9,18 @@
 
 <div class="col-md-6">
 
-@if($errors->any())
-	<ul class="alert alert-danger">
-		@foreach($errors->all() as $error)
-			<li>{{ $error }}</li>
-			@endforeach
-			</ul>
-		@endif
+@include('errors.formerrors')
 
-	<div class="form-group">
-	{!! Form::label('title', "Blog Title") !!}
-	{!! Form::text('title', null, ['class' => 'form-control']) !!}
-	</div>
-	<div class="form-group">
-	{!! Form::label('body', 'Blog Body') !!}
-	{!! Form::textarea('body', null, ['class' => 'form-control']) !!}
-	</div>
-	<div class="form-group">
-	{!! Form::submit('Edit Blog', ['class' => 'btn btn-primary']) !!}
-	</div>
-	</div>
+@include('partials.blogform', ['submitButton' => 'Edit Blog']);
 
 	
+{!! Form::model($blog, ['method' => 'DELETE', 'action' => ['BlogsController@destroy', $blog->id]]) !!}
+	
+	{!! Form::submit('Delete Blog', ['class' => 'btn btn-danger']) !!}
 
+{!! Form::close() !!}
+
+</div>
 
 {!! Form::close() !!}
 
